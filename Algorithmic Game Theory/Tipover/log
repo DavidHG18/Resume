@@ -1,0 +1,20 @@
+ESTIMATE of time to complete assignment: 10 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+9/10  3:45pm   0:45  read through assignment and played 
+                     game to understand it better.
+9/12  6:05pm   2:00  set up the reading of inputs into 
+                     variables and defined the goal state 
+                     / what constitutes a winning state.
+9/13  2:00pm   2:00  worked on tipping functions, move
+                     function, and tying together with recursion
+9/14  12:30pm  1:00  continued to work on implementing recursive
+                     solution.
+9/14  3:00pm   6:00  finished assignment.
+9/16  10:30pm  1:30  went back to make answer more efficient, 
+                     struggled with implementing undo function
+               ----
+               10:15 TOTAL time spent
+
