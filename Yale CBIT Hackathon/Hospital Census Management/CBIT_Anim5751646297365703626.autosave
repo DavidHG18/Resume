@@ -1,0 +1,71 @@
+float INFECTED_RATE = 0.6;
+
+Room room1;
+Room room2;
+Room room3;
+Room room4;
+ArrayList<Patient> patients = new ArrayList<Patient>();
+ArrayList<Room> rooms = new ArrayList<Room>();
+
+void settings(){
+  size(1200, 1200);
+}
+
+
+boolean reached_destination = false;
+int i = 0;
+Patient curr_pat = patients.get(i);
+Room destination = getRoom(rooms, curr_pat);
+
+void setup(){
+  background(255);
+  frameRate(24);
+  Animation anim = new Animation("walking", 29);
+  noFill();
+  stroke(255, 0, 0);
+  room1 = new Room(width - 200, 0, 10, 0);
+  room2 = new Room(width - 200, height - 900, 10, 0);
+  room3 = new Room(width - 200, height - 600, 10, 0);
+  room4 = new Room(width - 200, height - 300, 10, 0);
+  rooms.add(room1);
+  rooms.add(room2);
+  for (int i = 0; i < 40; i++) {  
+    Patient thispat = new Patient(anim, 0, 0, INFECTED_RATE);
+    patients.add(thispat);
+  }
+  for (Room room: rooms) {
+    shape(room.box, room.xpos, room.ypos);
+  }  
+}
+
+void draw() {
+  //println("Hello, World!");
+    if (i < 39){
+      if (reached_destination) {
+        i++;
+        curr_pat = patients.get(i);
+        destination = getRoom(rooms, curr_pat);
+        reached_destination = false;
+      }
+      background(255);
+      curr_pat.display();
+      if (curr_pat.xpos != destination.xpos) {
+        curr_pat.xpos += 1;
+      }
+      if (curr_pat.ypos != destination.ypos) {
+        curr_pat.ypos += 1;
+      }
+      if (curr_pat.xpos == destination.xpos && curr_pat.ypos == destination.ypos) {
+        reached_destination = true;
+      }
+    }
+}
+
+//TBD by model
+Room getRoom(ArrayList<Room> rooms, Patient pat) {
+  append(rooms, new Room(0, 0, 90, 0));
+  if (pat.infected) {
+    return room2;
+  }
+  else return room1;
+}
