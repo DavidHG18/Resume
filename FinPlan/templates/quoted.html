@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <!-- Display Quoted stocks information using lookup() function in neat way-->
+    <p>
+      A share of {{ name }} ({{ symbol }}) costs {{ price }}
+    </p>
+{% endblock %}

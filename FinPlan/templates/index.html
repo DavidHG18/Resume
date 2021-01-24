@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% endblock %}
+{% block main %}
+        <table  class="table table-dark" id="display" onload="rowChange()">
+            <thead>
+                <tr class="leftal">
+                    <th scope="col" colspan="2">Symbol</th>
+                    <th scope="col" colspan="2">Number of Shares</th>
+                    <th scope="col" colspan="2">Beta value</th>
+                    <th scope="col" colspan="2">ER(PE)</th>
+                    <th scope="col" colspan="2">ER(CAPM)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in display %}
+                <tr>
+                    {% for column in row %}
+                    <td>{{ column }}<td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+                <tr colspan="12">
+                    {% for row in portfolio %}
+                    <td colspan="2" class="leftal">{{ row }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <h2>
+                Rationale:
+            </h2>
+            <h6>
+                A stock's price is meant to be a reflection of the value of the company at a given point in time. Investors will buy a stock if they believe that value will increase, i.e. if they believe the company will earn more in the future.
+                We have taken this knowledge and applied it to our model, which predicts stock returns based on their current earnings, PE ratio, and expected earnings in the future.
+                We compare this number (ER(PE)) to the stock's expected earnings according to the Capital Asset Pricing Model (ER(CAPM)), which tells the investor how much return they should
+                reasonably expect given the risk associated with the company.
+            </h6>
+        </div>
+        <script>
+        window.onload = function() {
+            console.log("got here");
+            var table = document.getElementById("display");
+            var row;
+            for (var i = 0; i < table.rows.length; i++) {
+                row = table.rows[i].cells.length;
+                console.log(row);
+                if (row == 12 || row == 6) {
+                    table.rows[i].style.backgroundColor = "#9e0808";
+                    console.log("made it");
+                }
+            }
+        };
+
+        </script>
+{% endblock %}

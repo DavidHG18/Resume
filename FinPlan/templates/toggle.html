@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Toggle Parameters
+{% endblock %}
+
+{% block main %}
+    <form action="/toggle" method="post">
+        <div>
+            <h1 class="white">
+                THIS IS FILLER
+            </h1>
+        </div>
+        <h2>
+            Toggle the Market Risk Premium
+        </h2>
+
+        <h5 class="default">
+            Your current Market Risk Premium is <span id="demo2"></span>%
+        </h5>
+        <!-- Taken from https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+        <div>
+            <table>
+                <tr>
+                    <td class="labels">
+                        5.0%
+                    </td>
+                    <td class="labels2">
+                        F
+                    </td>
+                    <td class="labels">
+                        6.0%
+                    </td>
+                    <td class="labels2">
+                        F
+                    </td>
+                    <td class="labels">
+                        7.0%
+                    </td>
+                    <td class="labels2">
+                        F
+                    </td>
+                    <td class="labels">
+                        8.0%
+                    </td>
+                    <td class="labels2">
+                        F
+                    </td>
+                    <td class="labels">
+                        9.0%
+                    </td>
+                    <td class="labels2">
+                        F
+                    </td>
+                    <td class="labels">
+                        10.0%
+                    </td>
+                    <td class="labels2">
+                        F
+                    </td>
+                    <td class="labels">
+                        11.0%
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="slidecontainer">
+            <input type="range" min="5.0" max="11.0" value="8.00" class="slider" id="marketrisk" step="1">
+        </div>
+        <div>
+            <h1 class="white">
+                THIS IS FILLER
+            </h1>
+        </div>
+        <div>
+            <h1 class="white">
+                THIS IS FILLER
+            </h1>
+        </div>
+        <h2>
+            Toggle the Fed's Risk-Free Rate
+        </h2>
+        <h5 class="default">
+            Your current Risk-Free Rate is <span id="demo"></span>%
+        </h5>
+        <div>
+            <table>
+                <tr>
+                    <td class="labels">
+                        0.0%
+                    </td>
+                    <td class="labels3">
+                        F
+                    </td>
+                    <td class="labels">
+                        0.5%
+                    </td>
+                    <td class="labels3">
+                        F
+                    </td>
+                    <td class="labels">
+                        1.0%
+                    </td>
+                    <td class="labels3">
+                        F
+                    </td>
+                    <td class="labels">
+                        1.5%
+                    </td>
+                    <td class="labels3">
+                        F
+                    </td>
+                    <td class="labels">
+                        2.0%
+                    </td>
+                    <td class="labels3">
+                        F
+                    </td>
+                    <td class="labels">
+                        2.5%
+                    </td>
+                    <td class="labels3">
+                        F
+                    </td>
+                    <td class="labels">
+                        3.0%
+                    </td>
+                    <td class="labels3">
+                        F
+                    </td>
+                    <td class="labels">
+                        3.5%
+                    </td>
+                    <td class="labels3">
+                        F
+                    </td>
+                    <td class="labels">
+                        4.0%
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="slidecontainer">
+            <input type="range" min="0" max="4" value="1.75" class="slider" id="riskfree" step=".25">
+        </div>
+         <div>
+            <h1 class="white">
+                THIS IS FILLER
+            </h1>
+        </div>
+        <button class="btn btn-primary" id="btn" type="submit">Alter Parameters</button>
+        <div class="form-group">
+            <input autocomplete="off" id="mrform" autofocus class="form-control" name="mrform" value="5" type="hidden">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" id="rfform" autofocus class="form-control" name="rfform" value="7" type="hidden">
+        </div>
+        <script>
+        var sliderMR = document.getElementById("marketrisk");
+        var sliderRF = document.getElementById("riskfree");
+        var output = document.getElementById("demo");
+        var output2 = document.getElementById("demo2");
+        output.innerHTML = sliderRF.value;
+        output2.innerHTML = sliderMR.value;// Display the default slider value
+        console.log(sliderMR.value);
+
+
+        // Update the current slider value (each time you drag the slider handle)
+        sliderRF.oninput = function() {
+            output.innerHTML = this.value;
+        };
+        sliderMR.oninput = function() {
+            output2.innerHTML = this.value;
+        };
+
+        document.getElementById("btn").addEventListener("click", function(){
+            var rf = sliderRF.value / 100;
+            var mr = sliderMR.value / 100;
+            console.log("hey")
+            console.log(document.getElementById(("rfform")).value)
+
+            // Set mr form value to mr variable from script
+            document.getElementById(("mrform")).value = mr;
+
+            // Set rf form value to rf variable from script
+            document.getElementById(("rfform")).value = rf;
+
+            console.log("dave")
+            console.log(rf)
+            console.log(document.getElementById(("rfform")).value)
+        });
+
+        </script>
+    </form>
+
+
+
+{% endblock %}
