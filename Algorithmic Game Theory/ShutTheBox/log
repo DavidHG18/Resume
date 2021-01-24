@@ -1,0 +1,25 @@
+ESTIMATE of time to complete assignment: 8 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+9/21  4:00pm   3:15  read through assignment and completed most of the 
+                     basic requirements. Reached a non-optimal solution
+                     for Player 2's optimal move / expected wins.
+9/21  8:30pm   0:15  implemented dynamic programming solution for Player 2.
+9/22  2:00pm   2:00  tested solution for Player 1 and found out that
+                     there were slight differences between my expected outcomes
+                     and the probabilities my program was outputting. began work 
+                     on debugging.
+9/23  12:45pm  0:30  fixed issues with Player 2 output, formatted rest of output
+                     correctly, finished assignment.
+               ----
+               6:00 TOTAL time spent
+
+I found this assignment to be much easier than the first assignment. I believe this is 
+directly related to the fact that I had very little experience in Python prior to starting this 
+course, and now I feel much more comfortable attacking a problem without any starting code. I 
+took a very long time to debug my code when it wasn't working, however, and want to get better 
+at that. I'd love to hear any advice along the lines of debugging in order to further streamline 
+the efficiency of this process, as the actual issue in my code happened to be very small but it took 
+me two hours to find it.
